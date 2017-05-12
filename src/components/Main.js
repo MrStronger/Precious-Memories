@@ -4,7 +4,7 @@ require('styles/App.scss');
 import React from 'react';
 
 //获得图片信息
-let imageData = require('json!../sources/imageData.json');
+let imageData = require('../sources/imageData.json');
 
 //将真实图片与json数据绑定
 imageData = ((imageDataArr) => {
