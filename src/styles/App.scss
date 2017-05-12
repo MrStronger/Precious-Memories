@@ -1,0 +1,94 @@
+@mixin w-h-100($relative : inherit) {
+  position: $relative;
+  width: 100%;
+  height: 100%;
+}
+
+html,body {
+  @include w-h-100
+  background: #222;
+}
+.content {
+  @include w-h-100;
+
+}
+
+.stage {
+  @include w-h-100(relative);
+  height: 680px;
+}
+
+.img-sec{
+  @include w-h-100(relative);
+  overflow: hidden;
+
+  background-color: #ddd;
+
+  @at-root{
+    .img-figure{
+      padding: 7px;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      width: 200px;
+      height: auto;
+      perspective: 1000px;
+      transition: 1s ease-in-out;
+      transform-style: preserve-3d;
+
+      img{
+        width: 100%;
+        height: auto;
+      }
+
+      .img-title{
+        text-align: center;
+        margin-top: 7px;
+        margin-bottom: 7px;
+      }
+      .desc {
+       @include w-h-100(absolute);
+       left: 0;
+       top: 0;
+       transform: rotateY(180deg);
+       backface-visibility: hidden;
+
+       box-sizing: border-box;
+       padding: 20px;
+       line-height: 100%;
+       text-align: center;
+
+       background: url(../images/background.png) no-repeat center;
+       background-size: cover;
+      }
+      .front {
+        backface-visibility: hidden;
+      }
+    }
+  }
+}
+.controller-nav{
+  position:absolute;
+  left: 0;
+  bottom: 30px;
+  z-index: 101;
+  width: 100%;
+  text-align: center;
+
+  li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-left: 5px;
+
+    &:hover {
+      transform: scale(1.5);
+      cursor: pointer;
+      background-color: #ddd;
+    }
+  }
+
+}
